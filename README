@@ -1,0 +1,36 @@
+//  README
+//
+//  Created by Cory on 10/07/29.
+//  Copyright 2010 Cory R. Leach. All rights reserved.
+//
+//	Objective-C Code Timing Functions. 
+//	(Although a pure C implementation would be better, this is just meant to be a simple
+//	quick and easy solution, and therefore may not be appropriate for all cases.)
+//	
+//	Benchmark code can significantly slow down time critical functions,
+//  and should be used only to calculate the average time it takes a
+//  block of code to excecute, and then should be removed from any 
+//  release version of the software.
+//
+//	It is best to use the Benchmark Macros defined below, because they
+//  can easily be 'compiled out' of the code by removing the BENCHMARK_ON define
+//
+//  There are two kinds of benchmarks: Normal and Mach
+//  normal benchmarks results are calculated in seconds 
+//  mach benchmark results are calculated in cpu cycles
+// 
+//
+//  Normal Macros (Seconds)
+//  =============
+//  BENCHMARK_START( key )
+//  BENCHMARK_FINISH( key ) 
+//  BENCHMARK_REPORT_AVERAGE( key )
+//
+//  Mach Macros (CPU Cycles)
+//  ===========
+//  BENCHMARK_START_MACH( key )
+//  BENCHMARK_FINISH_MACH( key )
+//  BENCHMARK_REPORT_MACH_AVERAGE( key )
+//  * mach benchmark results can be converted to nanoseconds using machTimeToNanoseconds:
+//	* 'key' is used as the key to a NSDictionary
+//  * average macros will find the average value of multiple benchmarks with the same key
